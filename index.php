@@ -27,7 +27,9 @@ get_header(); ?>
 
 			
 		<div>
-			<?php if(function_exists("doublezero_custom_breadcrumbs")) doublezero_custom_breadcrumbs(); ?>
+			<?php 
+			/* uncomment below if you want breadcrumbs (you'll have to style them, though) */
+			/* if(function_exists("doublezero_custom_breadcrumbs")) doublezero_custom_breadcrumbs(); */?>
 		</div>
 
 		<?php if ( have_posts() ) : ?>
@@ -53,7 +55,7 @@ get_header(); ?>
 				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'doublezero' ) . ' </span>',
 			) );
 
-		// If no content, include the "No posts found" template.
+		// If no content, include the "No posts found" template (if there's one)
 		else :
 			get_template_part( 'content', 'none' );
 

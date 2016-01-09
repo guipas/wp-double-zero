@@ -4,6 +4,15 @@ require_once('extras/wp_bootstrap_navwalker.php');
 require_once('extras/breadcrumbs.php');
 
 
+/**
+* Setting up the theme
+* 
+*/
+function doublezero_theme_setup() {
+	add_theme_support( 'custom-header' );
+}
+add_action( 'after_setup_theme', 'doublezero_theme_setup' );
+
 
 /**
  * Register widget area.
@@ -28,7 +37,7 @@ add_action( 'widgets_init', 'doublezero_widgets_init' );
  *
  */
 function doublezero_menu_register() {
-  register_nav_menu( 'primary', __( 'top', 'Top Menu' ) );
+  register_nav_menu( 'top', __( 'top', 'Top Menu' ) );
 }
 add_action( 'after_setup_theme', 'doublezero_menu_register' );
 

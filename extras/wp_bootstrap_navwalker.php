@@ -65,6 +65,7 @@ class wp_bootstrap_navwalker extends Walker_Nav_Menu {
 			if ( $args->has_children )
 				$class_names .= ' dropdown';
 
+
 			if ( in_array( 'current-menu-item', $classes ) )
 				$class_names .= ' active';
 

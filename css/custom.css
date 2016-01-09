@@ -1,0 +1,14 @@
+/* add your custom css here */
+
+header .site-title,
+header .site-logo {
+    text-align: center;
+}
+
+header .site-logo {
+    margin-top: 20px;
+}
+
+.navbar-toggle .icon-bar {
+    background: black;
+}

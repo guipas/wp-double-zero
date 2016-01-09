@@ -21,18 +21,20 @@
 	<div class="header-wrapper">
 		<header id="masthead" class="site-header container" role="banner">
 			<div class="header-row row">
-				<div class="site-branding col-xs-12">
+				<div class="site-logo col-xs-12">
 					<div class="logo-div">
-						<a title="<?php bloginfo( 'name' ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php get_header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+						<a title="<?php bloginfo( 'name' ); ?>" href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_header_image(); ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 					</div>
 				</div><!-- .site-branding -->
 
+                <div class="site-title col-xs-12">
+                    <h1><?php bloginfo( 'name' ); ?></h1>
+                    <div class="description"><?php bloginfo( 'description' ); ?></div>
+                </div>
 
-				<div class="col-xs-12 nav-wrapper">
+				<div class="site-nav col-xs-12 nav-wrapper">
 					<div class="row">
-						<div class="col-xs-12">
-							<h1><?php bloginfo( 'description' ); ?></h1>
-						</div>
+
 						<nav class="col-xs-12">
 							 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
 						        <span class="sr-only">Toggle navigation</span>
@@ -50,7 +52,8 @@
 					        		'container_id'      => 'bs-example-navbar-collapse-1',
 					                'menu_class'        => 'nav navbar-nav',
 					                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-					                'walker'            => new wp_bootstrap_navwalker())
+					                'walker'            => new wp_bootstrap_navwalker()
+                                    )
 					            );
 							?>
 						</nav>
