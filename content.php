@@ -9,20 +9,16 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<div class="entry-intro">
-		<?php
-			if(function_exists("the_field")) the_field("introduction");
-		?>
+	<div class="entry-header">
+		<?php echo is_singular() ? '<h1>' : '<h2><a title="'.get_the_title().'" href="'.get_permalink().'">'; ?>
+			<?php the_title(); ?>
+		<?php echo is_singular() ? '</h1>' : '</a></h2>'; ?>
+
 	</div>
 
 	<div class="entry-content">
 		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s', 'doublezero' ),
-				the_title( '<span class="screen-reader-text">', '</span>', false )
-			) );
-			
+			the_content();
 		?>
 	</div><!-- .entry-content -->
 

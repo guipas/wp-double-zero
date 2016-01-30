@@ -7,20 +7,6 @@
 
 get_header(); ?>
 
-	<div class="sub-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-12">
-					<div class="sh-picto"></div>
-					<?php if ( have_posts() ) : ?>
-						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-					<?php endif; ?>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
 	<div id="primary" class="content-area container">
 		<main id="main" class="site-main row" role="main">
 		<div class="col-xs-12">

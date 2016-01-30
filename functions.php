@@ -9,7 +9,9 @@ require_once('extras/breadcrumbs.php');
 * 
 */
 function doublezero_theme_setup() {
-	add_theme_support( 'custom-header' );
+	add_theme_support( 'custom-header', array(
+		'default-image' => get_template_directory_uri() . '/img/doublezero.png',
+	));
 }
 add_action( 'after_setup_theme', 'doublezero_theme_setup' );
 
@@ -48,20 +50,14 @@ add_action( 'after_setup_theme', 'doublezero_menu_register' );
  */
 function doublezero_scripts() {
 
-	// Load our main stylesheet.
-	wp_enqueue_style( 'doublezero-style', get_stylesheet_uri(), array( 'doublezero-bootstrap' ) );
+	// Load our main stylesheet (including bootstrap).
+	wp_enqueue_style( 'doublezero-css', get_template_directory_uri() . '/css/doublezero.css');
 
-	// Load bootstrap css
-	wp_enqueue_style( 'doublezero-bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
-	wp_enqueue_style( 'doublezero-bootstrap-theme', get_template_directory_uri() . '/css/bootstrap-theme.css', array( 'doublezero-bootstrap' ) );
-	wp_enqueue_style( 'doublezero-hovernav', get_template_directory_uri() . '/css/hovernav.css', array( 'doublezero-bootstrap-theme' ) );
-
-    //load custom css
-    wp_enqueue_style( 'doublezero-custom', get_template_directory_uri() . '/css/custom.css', array( 'doublezero-bootstrap' ) );
+	//wp_enqueue_style( 'doublezero-hovernav', get_template_directory_uri() . '/css/hovernav.css', array( 'doublezero-bootstrap-theme' ) );
 
 	//load bootstraps's js
 	wp_enqueue_script( 'doublezero-bootsrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '', true );
-	wp_enqueue_script( 'doublezero-hovernav-js', get_template_directory_uri() . '/js/hovernav.js', array('doublezero-bootsrap-js'), '', true );
+	//wp_enqueue_script( 'doublezero-hovernav-js', get_template_directory_uri() . '/js/hovernav.js', array('doublezero-bootsrap-js'), '', true );
 
 	// our custom js
 	wp_enqueue_script( 'doublezero-custom-js', get_template_directory_uri() . '/js/custom.js', array('jquery'), '', true );

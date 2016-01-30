@@ -1,2 +1,7 @@
 *.log
 .htaccess
+
+node_modules/
+bower_components/
+gulpfile.js
+
