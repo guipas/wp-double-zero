@@ -6724,3 +6724,7 @@ button.close {
     display: none !important;
   }
 }
+header {
+  text-align: center;
+  margin-top: 20px;
+}

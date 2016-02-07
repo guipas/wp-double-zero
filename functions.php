@@ -2,6 +2,7 @@
 
 require_once('extras/wp_bootstrap_navwalker.php');
 require_once('extras/breadcrumbs.php');
+require_once('extras/wp_bootstrap_pagination.php');
 
 
 /**

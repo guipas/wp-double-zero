@@ -15,7 +15,8 @@ get_header(); ?>
 		<div>
 			<?php 
 			/* uncomment below if you want breadcrumbs (you'll have to style them, though) */
-			/* if(function_exists("doublezero_custom_breadcrumbs")) doublezero_custom_breadcrumbs(); */?>
+			if(!is_front_page()) doublezero_custom_breadcrumbs();
+			?>
 		</div>
 
 		<?php if ( have_posts() ) : ?>
@@ -34,12 +35,8 @@ get_header(); ?>
 			// End the loop.
 			endwhile;
 
-			// Previous/next page navigation.
-			the_posts_pagination( array(
-				'prev_text'          => __( 'Previous page', 'doublezero' ),
-				'next_text'          => __( 'Next page', 'doublezero' ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'doublezero' ) . ' </span>',
-			) );
+			//Pagination
+			doublezero_wp_bootstrap_pagination();
 
 		// If no content, include the "No posts found" template (if there's one)
 		else :
