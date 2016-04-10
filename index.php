@@ -23,14 +23,31 @@ get_header(); ?>
         			<?php
         			// Start the loop.
         			while ( have_posts() ) : the_post();
+                    ?>
 
-        				/*
-        				 * Include the Post-Format-specific template for the content.
-        				 * If you want to override this in a child theme, then include a file
-        				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-        				 */
-        				get_template_part( 'content' );
+                    <article id="post-<?php the_ID(); ?>" <?php post_class('col-xs-12'); ?>>
 
+                        <div class="entry-header page-header">
+                            <?php echo is_singular() ? '<h1>' : '<h2><a title="'.get_the_title().'" href="'.get_permalink().'">'; ?>
+                                <?php the_title(); ?>
+                            <?php echo is_singular() ? '</h1>' : '</a></h2>'; ?>
+
+                            <div class="entry-meta">
+                                <div class='date'><?php echo __('Posted the : ','doublezero'); ?><span><?php the_time(__('F j, Y','doublezero')); ?></span></div>
+                                <div class='categories'><?php echo __('in : ','doublezero'); ?><span><?php the_category( ', ' ); ?></span></div>
+                                <div class="tags"><?php the_tags(__('Tags : ','doublezero'),', '); ?></div>
+                            </div>
+                        </div>
+
+                        <div class="entry-content">
+                            <?php the_content(); ?>
+                        </div><!-- .entry-content -->
+
+                        <footer class="entry-footer"></footer><!-- .entry-footer -->
+
+                    </article><!-- #post-## -->
+
+                    <?php
         			// End the loop.
         			endwhile;
 
@@ -39,7 +56,7 @@ get_header(); ?>
 
         		// If no content, include the "No posts found" template (if there's one)
         		else :
-        			get_template_part( 'content', 'none' );
+        			echo __('Sorry, no post found !', 'doublezero');
 
         		endif;
         		?>
